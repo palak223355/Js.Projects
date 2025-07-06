@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello, World!</title>
+  <style>
+    input {
+      margin: 10px;
+      width:200px;
+      margin-left:40px;
+    }
+  .main{
+   background-color:skyblue;
+    display:flex;
+    flex-direction:column;
+    width:300px;
+    justify-content:center;
+    margin: 0 auto;
+    margin-top:60%;
+    padding:20px;
+    border-radius:5px;
+  }
+  h1{
+    font-size:30px;
+  }
+  button{
+  width:100px;
+margin-left:30%;   
+  }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1>Check student marks </h1>
+  <input type="number" id="inputmark1">
+  <input type="number" id="inputmark2">
+  <input type="number" id="inputmark3">
+  <button id="markbtn">check</button>
+  <div id="output"></div>
+  </div>
+  <script>
+    const inputmark1 = document.querySelector("#inputmark1");
+    const inputmark2 = document.querySelector("#inputmark2");
+    const inputmark3 = document.querySelector("#inputmark3");
+    const markbtn = document.querySelector("#markbtn");
+
+    function check() {
+      const mark1 = Number(inputmark1.value);
+      const mark2 = Number(inputmark2.value);
+      const mark3 = Number(inputmark3.value);
+if (!inputmark1.value || !inputmark2.value || !inputmark3.value) {
+  document.querySelector("#output").innerText = "Please enter all marks!";
+  return;
+}
+      if (mark1 >= 90 && mark2 >= 75 && mark3 >= 75) {
+        document.querySelector("#output").innerText = "A";
+      } else if (mark1 >= 75 && mark2 >= 60 && mark3 >= 60) {
+        document.querySelector("#output").innerText = "B";
+      } else if (mark1 >= 50 && mark2 >= 50 && mark3 >= 50) {
+        document.querySelector("#output").innerText = "C";
+      } else {
+        document.querySelector("#output").innerText = "Fail";
+      }
+    }
+
+    markbtn.addEventListener("click", check);
+  </script>
+</body>
+</html>
